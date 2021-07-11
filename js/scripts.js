@@ -34,6 +34,7 @@ function roll () {
     }
   }
 }
+
 function score (userScore, initialScore) {
   let rollOutcome = math();
   $("#roll-outcome").text(rollOutcome);
@@ -42,7 +43,6 @@ function score (userScore, initialScore) {
     return initialScore;
   } 
   else {
-     
     game.rollOne = false;
     console.log(game.rollOne);
     return userScore + rollOutcome;
