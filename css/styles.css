@@ -1,0 +1,43 @@
+.container
+{
+  width: 45%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: lightgray;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#roll {
+
+}
+
+#hold {
+
+}
+
+.row {
+
+}
+
+.col {
+
+}
+
+#turn {
+  margin: auto;
+}
+
+#tauntMessage {
+  display: none;
+  font-family: "Comic Sans MS", "Comic Sans";
+
+}
+
+img {
+  width: 80%;
+  margin-top: 20px;
+}

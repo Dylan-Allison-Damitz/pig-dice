@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.6.0.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pig Dice</title>
+</head>
+<body>
+  <div class = "container">
+    <div class = "turn">
+      <strong>PLAYER <span id = "turn"></span> TURN</strong>
+    </div>
+    <div class = "row">
+      <div class = "col">
+          <p>PLAYER 1 SCORE = <span id = "player1"></span></p>
+      </div>
+      <div class = "col">
+          <p>PLAYER 2 SCORE = <span id ="player2"></span></p>
+      </div>
+    </div>
+    <div id = "roll">
+    </div>
+    <div class = "row">
+      <div class = "col">
+        <form id = "roll">
+          <button type="submit" class = "btn btn-success" for = "roll">Roll</button>
+        </form>
+      </div>
+      <div class = "col">
+        <form id = "hold">
+          <button type= "submit" class = "btn btn-danger">Hold</button>
+        </form>
+      </div>
+      <div class = "col">
+        <form id = "taunt">
+          <button type= "submit" class = "btn btn-dark">Taunt</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class = "container">
+    <div id = "tauntMessage">
+      <strong>You SUCK, dumbass</strong>
+      <img src="img/troll2.jpg">
+    </div>  
+  </div>
+</body>
+</html>
