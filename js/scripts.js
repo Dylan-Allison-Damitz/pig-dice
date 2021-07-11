@@ -1,31 +1,51 @@
 // Business Logic
 function Game () {
-  this.score = {}; // game.score["player1th"] += number;
+  this.score = {"player1": 0, "player2": 0};
   this.turn = true;
+  this.initialValue = 0;
+  this.rollOne = true;
   // turn = Game.turn = !Game.turn;
 }
 
+
 function roll () {
   if (game.turn === false) {
-    game.score["Player2"] = score(game.score);
-    $("#player2").text(game.score["Player2"])
-  }
-  else { 
-    game.score["Player1"] = score(game.score);
-    $("#player1").text(game.score["Player1"])
-  }
-  // random number gen 1-6
-  // if 1, reset score to 1
-  // if 100 or greater, end game, taunt player
-}
-function score (playerScore) {
-  let rollOutcome = math();
-  $("#roll").text(rollOutcome);
-  if (rollOutcome === 1) {
-    return 0;
+    if (game.rollOne === true) {
+      game.initialValue = game.score["player2"];
+      console.log(game.initialValue);
+    }
+    game.score["player2"] = score(game.score["player2"], game.initialValue);
+    $("#player2").text(game.score["player2"]);
+    if (game.score["player2"] >= 10) {
+      $("#completeDominationMessage").show();
+      $("#winner").text(2);
+    }
   }
   else {
-    playerScore = playerScore + rollOutcome;
+    if (game.rollOne === true) {
+      game.initialValue = game.score["player1"];
+      console.log(game.initialValue);
+    } 
+    game.score["player1"] = score(game.score["player1"], game.initialValue);
+    $("#player1").text(game.score["player1"]);
+    if (game.score["player1"] >= 10) {
+      $("#completeDominationMessage").show();
+      $("#winner").text(1);
+    }
+  }
+}
+function score (userScore, initialScore) {
+  let rollOutcome = math();
+  $("#roll-outcome").text(rollOutcome);
+  if (rollOutcome === 1) {
+    changeTurn(); 
+    return initialScore;
+  } 
+  else {
+     
+    game.rollOne = false;
+    console.log(game.rollOne);
+    return userScore + rollOutcome;
   }
 }
 
@@ -38,6 +58,7 @@ function math() {
 game = new Game;
 
 function changeTurn() {
+  game.rollOne = true;
   game.turn = !game.turn;
   if (game.turn === false) {
     $("#turn").text(2)
@@ -47,19 +68,19 @@ function changeTurn() {
   }
 }
 $(document).ready(function() {
+  $("#roll").submit(function(event) {
+    event.preventDefault();
+    roll();
+    $("#tauntMessage").hide();
+  });
+
   $("#hold").submit(function(event) {
     event.preventDefault();
     changeTurn();
     $("#tauntMessage").hide();
   });
 
-  $("#roll").submit(function(event) {
-    alert("YOUVE ROLLED");
-    event.preventDefault();
-    // roll();
-    changeTurn();
-    $("#tauntMessage").hide();
-  });
+
   $("#taunt").submit(function(event) {
     event.preventDefault();
     $("#tauntMessage").show();

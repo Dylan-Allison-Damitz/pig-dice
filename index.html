@@ -20,22 +20,22 @@
           <p>PLAYER 2 SCORE = <span id ="player2"></span></p>
       </div>
     </div>
-    <div id = "roll">
+    <div id = "roll-outcome">
     </div>
     <div class = "row">
       <div class = "col">
         <form id = "roll">
-          <button type="submit" class = "btn btn-success" for = "roll">Roll</button>
+          <button type = "submit" class = "btn btn-success" for = "roll">Roll</button>
         </form>
       </div>
       <div class = "col">
         <form id = "hold">
-          <button type= "submit" class = "btn btn-danger">Hold</button>
+          <button type = "submit" class = "btn btn-danger">Hold</button>
         </form>
       </div>
       <div class = "col">
         <form id = "taunt">
-          <button type= "submit" class = "btn btn-dark">Taunt</button>
+          <button type = "submit" class = "btn btn-dark">Taunt</button>
         </form>
       </div>
     </div>
@@ -44,7 +44,13 @@
     <div id = "tauntMessage">
       <strong>You SUCK, dumbass</strong>
       <img src="img/troll2.jpg">
-    </div>  
+    </div> 
+    <div id ="completeDominationMessage">
+      <p>
+        PLAYER <span id = winner></span> WINS
+      </p>
+      <img src="img/pig.gif">
+    </div>
   </div>
 </body>
 </html>
