@@ -1,4 +1,4 @@
-.container
+#roll-container
 {
   width: 45%;
   margin: auto;
@@ -11,20 +11,17 @@
   border-width: 1px;
 }
 
-#roll {
-
-}
-
-#hold {
-
-}
-
-.row {
-
-}
-
-.col {
-
+#result-container
+{
+  width: 45%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: lightgray;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
 }
 
 #turn {

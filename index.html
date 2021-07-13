@@ -8,7 +8,7 @@
   <title>Pig Dice</title>
 </head>
 <body>
-  <div class = "container">
+  <div id = "roll-container">
     <div class = "turn">
       <strong>PLAYER <span id = "turn"></span> TURN</strong>
     </div>
@@ -40,16 +40,17 @@
       </div>
     </div>
   </div>
-  <div class = "container">
+  <div id = "result-container">
     <div id = "tauntMessage">
       <strong>You SUCK, dumbass</strong>
       <img src="img/troll2.jpg">
     </div> 
     <div id ="completeDominationMessage">
       <p>
-        PLAYER <span id = winner></span> WINS
+       <span id = winner></span> WINS
       </p>
       <img src="img/pig.gif">
+      <button type="btn btn-success" onClick="window.location.reload();">Play again!</button>
     </div>
   </div>
 </body>

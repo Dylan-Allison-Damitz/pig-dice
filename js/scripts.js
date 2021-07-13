@@ -9,29 +9,22 @@ function Game () {
 
 
 function roll () {
-  if (game.turn === false) {
-    if (game.rollOne === true) {
-      game.initialValue = game.score["player2"];
-      console.log(game.initialValue);
-    }
-    game.score["player2"] = score(game.score["player2"], game.initialValue);
-    $("#player2").text(game.score["player2"]);
-    if (game.score["player2"] >= 10) {
-      $("#completeDominationMessage").show();
-      $("#winner").text(2);
-    }
+  let turn;
+  if (game.turn === false)
+  {
+    turn = "player2";
+  } else {
+    turn = "player1";
   }
-  else {
-    if (game.rollOne === true) {
-      game.initialValue = game.score["player1"];
-      console.log(game.initialValue);
-    } 
-    game.score["player1"] = score(game.score["player1"], game.initialValue);
-    $("#player1").text(game.score["player1"]);
-    if (game.score["player1"] >= 10) {
-      $("#completeDominationMessage").show();
-      $("#winner").text(1);
-    }
+  if (game.rollOne === true) {
+    game.initialValue = game.score[turn];
+  }
+  game.score[turn] = score(game.score[turn], game.initialValue);
+  $("#" + turn).text(game.score[turn]);
+  if (game.score[turn] >= 10) {
+    $("#completeDominationMessage").show();
+    $("#winner").text(turn);
+    $("#roll-container").hide();
   }
 }
 
@@ -44,7 +37,6 @@ function score (userScore, initialScore) {
   } 
   else {
     game.rollOne = false;
-    console.log(game.rollOne);
     return userScore + rollOutcome;
   }
 }
@@ -67,7 +59,7 @@ function changeTurn() {
     $("#turn").text(1)
   }
 }
-$(document).ready(function() {
+$(document).ready(function(event) {
   $("#roll").submit(function(event) {
     event.preventDefault();
     roll();
@@ -85,5 +77,4 @@ $(document).ready(function() {
     event.preventDefault();
     $("#tauntMessage").show();
   });
-  
 });
